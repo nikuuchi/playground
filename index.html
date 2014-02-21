@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Zen Playground</title><link rel="stylesheet" href="css/bootstrap.css"/><style type="text/css" media="screen">#editor-left {
+  height: 600px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+#editor-right {
+  height: 600px;
+  border: 1px solid black;
+  border-radius: 3px;
+}</style></head><body><div class="container"><h1>Libzen Playground</h1></div><div class="container"><div class="col-lg-6"><div id="editor-left">function foo&lpar;items&rpar; &lcub;
+var x &equals; &quot;All this is syntax highlighted&quot;&semi;
+return x&semi;
+&rcub;</div></div><div class="col-lg-6"><div id="editor-right">function foo&lpar;items&rpar; &lcub;
+var x &equals; &quot;All this is syntax highlighted&quot;&semi;
+return x&semi;
+&rcub;</div></div></div><div class="script"><script type="text/javascript" src="js/jquery.js"></script><script type="text/javascript" src="js/bootstrap.min.js"></script><script type="text/javascript" src="ace/ace.js"></script><script type="text/javascript">var Leditor = ace.edit("editor-left");
+Leditor.setTheme("ace/theme/xcode");
+Leditor.getSession().setMode("ace/mode/javascript");
+var Reditor = ace.edit("editor-right");
+Reditor.setTheme("ace/theme/xcode");
+Reditor.getSession().setMode("ace/mode/javascript");</script></div></body></html>

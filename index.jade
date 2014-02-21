@@ -1,0 +1,46 @@
+include mixin
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Zen Playground
+    +css('css/bootstrap.css')
+    style(type='text/css', media='screen').
+      #editor-left {
+        height: 600px;
+        border: 1px solid black;
+        border-radius: 3px;
+      }
+      #editor-right {
+        height: 600px;
+        border: 1px solid black;
+        border-radius: 3px;
+      }
+  body
+    .container
+      h1 Libzen Playground
+    .container
+      .col-lg-6
+        #editor-left
+          | function foo&lpar;items&rpar; &lcub;
+          | var x &equals; &quot;All this is syntax highlighted&quot;&semi;
+          | return x&semi;
+          | &rcub;
+      .col-lg-6
+        #editor-right
+          | function foo&lpar;items&rpar; &lcub;
+          | var x &equals; &quot;All this is syntax highlighted&quot;&semi;
+          | return x&semi;
+          | &rcub;
+    .script
+      +js('js/jquery.js')
+      +js('js/bootstrap.min.js')
+      +js('ace/ace.js')
+      script(type='text/javascript').
+        var Leditor = ace.edit("editor-left");
+        Leditor.setTheme("ace/theme/xcode");
+        Leditor.getSession().setMode("ace/mode/javascript");
+        var Reditor = ace.edit("editor-right");
+        Reditor.setTheme("ace/theme/xcode");
+        Reditor.getSession().setMode("ace/mode/javascript");
