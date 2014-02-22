@@ -18,21 +18,23 @@ html(lang='en')
         border-radius: 3px;
       }
   body
-    .container
+    .container(style='max-width: 960px; min-width: 780px;')
       nav.navbar.navbar-default(role='navigation')
         .container-fluid
           .navbar-header.navbar-right
             a.navbar-brand(href='#') Libzen Playground
           .collapse.navbar-collapse
-            button#compile-btn.btn.btn-default.navbar-btn(type='button') Compile
-    .container
-      .col-lg-6
+            button#compile-btn.btn.btn-primary.navbar-btn(type='button')
+              span.glyphicon.glyphicon-play
+              | &nbsp; Compile
+    .container(style='max-width: 960px; min-width: 780px;')
+      .col-lg-6.col-md-6.col-sm-6.col-xs-6(style='padding-right: 0px;')
         #editor-left
           | function foo&lpar;items&rpar; &lcub;
           | var x &equals; &quot;All this is syntax highlighted&quot;&semi;
           | return x&semi;
           | &rcub;
-      .col-lg-6
+      .col-lg-6.col-md-6.col-sm-6.col-xs-6(style='padding-left: 0px;')
         #editor-right
           | function foo&lpar;items&rpar; &lcub;
           | var x &equals; &quot;All this is syntax highlighted&quot;&semi;
