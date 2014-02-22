@@ -1,3 +1,5 @@
+///<reference path='./typings/jquery/jquery.d.ts' />
+
 $(function () {
     var Leditor = ace.edit("editor-left");
     Leditor.setTheme("ace/theme/xcode");
