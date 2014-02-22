@@ -19,7 +19,12 @@ html(lang='en')
       }
   body
     .container
-      h1 Libzen Playground
+      nav.navbar.navbar-default(role='navigation')
+        .container-fluid
+          .navbar-header
+            a.navbar-brand(href='#') Libzen Playground
+          .collapse.navbar-collapse
+            button.btn.btn-default.navbar-btn(type='button') Compile
     .container
       .col-lg-6
         #editor-left
@@ -36,5 +41,5 @@ html(lang='en')
     .script
       +js('js/jquery.js')
       +js('js/bootstrap.min.js')
-      +js('ace/ace.js')
+      +js('js/ace/ace.js')
       +js('index.js')
