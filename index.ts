@@ -7,10 +7,12 @@ $(() => {
     Leditor.getSession().setMode("ace/mode/javascript");
 
     var Reditor = ace.edit("editor-right");
+    Reditor.setReadOnly(true);
     Reditor.setTheme("ace/theme/xcode");
     Reditor.getSession().setMode("ace/mode/javascript");
 
     $("#compile-btn").click((event: MouseEvent) => {
-        console.log('hello');
+        var value = Leditor.getValue();
+        Reditor.setValue(value);
     });
 });
