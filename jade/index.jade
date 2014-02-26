@@ -23,10 +23,9 @@ html(lang='en')
         h1 Libzen Playground
     .container(style='max-width: 1280px; min-width: 780px;')
       .col-lg-6.col-md-6.col-sm-6.col-xs-6
-        //(style='padding-right: 0px;')
         nav.navbar.navbar-default(role='navigation')
           .container-fluid
-            .navbar-header.navbar-right
+            .navbar-header.navbar-left
               a.navbar-brand(href='#') Konoha
         #zen-editor
           | function foo&lpar;items&rpar; &lcub;
@@ -36,9 +35,7 @@ html(lang='en')
       .col-lg-6.col-md-6.col-sm-6.col-xs-6
         nav.navbar.navbar-default(role='navigation')
           .container-fluid
-            .navbar-header.navbar-right
-              a.navbar-brand(href='#') JavaScript
-        //(style='padding-left: 0px;')
+            ul#Targets.nav.navbar-nav.navbar-right
         #output-viewer
     .script
       +js('js/jquery.js')

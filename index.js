@@ -2,6 +2,8 @@
 
 var Playground;
 (function (Playground) {
+    Playground.CodeGenTarget = "js";
+
     function CreateEditor(query) {
         var editor = ace.edit(query);
         editor.setTheme("ace/theme/xcode");
@@ -9,6 +11,11 @@ var Playground;
         return editor;
     }
     Playground.CreateEditor = CreateEditor;
+
+    function ChangeSyntaxHighlight(editor, targetMode) {
+        editor.getSession().setMode("ace/mode/" + targetMode);
+    }
+    Playground.ChangeSyntaxHighlight = ChangeSyntaxHighlight;
 })(Playground || (Playground = {}));
 
 $(function () {
@@ -17,8 +24,8 @@ $(function () {
     outputViewer.setReadOnly(true);
 
     var Generate = function () {
-        outputViewer.getSession().setMode("ace/mode/css");
         outputViewer.setValue(zenEditor.getValue());
+        outputViewer.clearSelection();
     };
 
     var timer = null;
@@ -29,4 +36,30 @@ $(function () {
         }
         timer = setTimeout(Generate, 200);
     });
+
+    var TargetNames = ["JavaScript", "Python", "Erlang", "C"];
+    var TargetOptions = ["js", "python", "erlang", "c"];
+    var TargetMode = ["javascript", "python", "erlang", "c_cpp"];
+
+    var bind = function (n) {
+        var Target = $('#Target-' + TargetNames[n]);
+        Target.click(function () {
+            Playground.CodeGenTarget = TargetOptions[n];
+            $('li.active').removeClass("active");
+            Target.parent().addClass("active");
+            Playground.ChangeSyntaxHighlight(outputViewer, TargetMode[n]);
+            if (timer) {
+                clearTimeout(timer);
+                timer = null;
+            }
+            Generate();
+        });
+    };
+
+    for (var i = 0; i < TargetNames.length; i++) {
+        $("#Targets").append('<li id="Target-' + TargetNames[i] + '-li"><a href="#" id="Target-' + TargetNames[i] + '">' + TargetNames[i] + '</a></li>');
+        bind(i);
+    }
+
+    $("#Target-JavaScript-li").addClass("active");
 });
