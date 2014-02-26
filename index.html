@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Zen Playground</title><link rel="stylesheet" href="css/bootstrap.css"/><style type="text/css" media="screen">#editor-left {
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Zen Playground</title><link rel="stylesheet" href="css/bootstrap.css"/><style type="text/css" media="screen">#zen-editor {
   height: 600px;
   border: 1px solid black;
   border-radius: 3px;
 }
-#editor-right {
+#output-viewer {
   height: 600px;
   border: 1px solid black;
   border-radius: 3px;
-}</style></head><body><div style="max-width: 960px; min-width: 780px;" class="container"><nav role="navigation" class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header navbar-right"><a href="#" class="navbar-brand">Libzen Playground</a></div><div class="collapse navbar-collapse"><button id="compile-btn" type="button" class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-play"></span>&nbsp; Compile</button></div></div></nav></div><div style="max-width: 960px; min-width: 780px;" class="container"><div style="padding-right: 0px;" class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><div id="editor-left">function foo&lpar;items&rpar; &lcub;
-var x &equals; &quot;All this is syntax highlighted&quot;&semi;
-return x&semi;
-&rcub;</div></div><div style="padding-left: 0px;" class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><div id="editor-right"></div></div></div><div class="script"><script type="text/javascript" src="js/jquery.js"></script><script type="text/javascript" src="js/bootstrap.min.js"></script><script type="text/javascript" src="js/ace/ace.js"></script><script type="text/javascript" src="index.js"></script></div></body></html>
+}</style></head><body><div style="max-width: 1280px; min-width: 780px;" class="container"><div class="header"><h1>Libzen Playground</h1></div></div><div style="max-width: 1280px; min-width: 780px;" class="container"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><!--(style='padding-right: 0px;')--><nav role="navigation" class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header navbar-right"><a href="#" class="navbar-brand">Konoha</a></div></div></nav><div id="zen-editor">function foo&lpar;items&rpar; &lcub;
+&#9;var x &equals; &quot;All this is syntax highlighted&quot;&semi;
+&#9;return x&semi;
+&rcub;</div></div><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><nav role="navigation" class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header navbar-right"><a href="#" class="navbar-brand">JavaScript</a></div></div></nav><!--(style='padding-left: 0px;')--><div id="output-viewer"></div></div></div><div class="script"><script type="text/javascript" src="js/jquery.js"></script><script type="text/javascript" src="js/bootstrap.min.js"></script><script type="text/javascript" src="js/ace/ace.js"></script><script type="text/javascript" src="index.js"></script></div></body></html>

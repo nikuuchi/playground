@@ -1,17 +1,32 @@
 ///<reference path='./typings/jquery/jquery.d.ts' />
 
+var Playground;
+(function (Playground) {
+    function CreateEditor(query) {
+        var editor = ace.edit(query);
+        editor.setTheme("ace/theme/xcode");
+        editor.getSession().setMode("ace/mode/javascript");
+        return editor;
+    }
+    Playground.CreateEditor = CreateEditor;
+})(Playground || (Playground = {}));
+
 $(function () {
-    var Leditor = ace.edit("editor-left");
-    Leditor.setTheme("ace/theme/xcode");
-    Leditor.getSession().setMode("ace/mode/javascript");
+    var zenEditor = Playground.CreateEditor("zen-editor");
+    var outputViewer = Playground.CreateEditor("output-viewer");
+    outputViewer.setReadOnly(true);
 
-    var Reditor = ace.edit("editor-right");
-    Reditor.setReadOnly(true);
-    Reditor.setTheme("ace/theme/xcode");
-    Reditor.getSession().setMode("ace/mode/javascript");
+    var Generate = function () {
+        outputViewer.getSession().setMode("ace/mode/css");
+        outputViewer.setValue(zenEditor.getValue());
+    };
 
-    $("#compile-btn").click(function (event) {
-        var value = Leditor.getValue();
-        Reditor.setValue(value);
+    var timer = null;
+    zenEditor.on("change", function (cm, obj) {
+        if (timer) {
+            clearTimeout(timer);
+            timer = null;
+        }
+        timer = setTimeout(Generate, 200);
     });
 });

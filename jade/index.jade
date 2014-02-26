@@ -7,35 +7,39 @@ html(lang='en')
     title Zen Playground
     +css('css/bootstrap.css')
     style(type='text/css', media='screen').
-      #editor-left {
+      #zen-editor {
         height: 600px;
         border: 1px solid black;
         border-radius: 3px;
       }
-      #editor-right {
+      #output-viewer {
         height: 600px;
         border: 1px solid black;
         border-radius: 3px;
       }
   body
-    .container(style='max-width: 960px; min-width: 780px;')
-      nav.navbar.navbar-default(role='navigation')
-        .container-fluid
-          .navbar-header.navbar-right
-            a.navbar-brand(href='#') Libzen Playground
-          .collapse.navbar-collapse
-            button#compile-btn.btn.btn-primary.navbar-btn(type='button')
-              span.glyphicon.glyphicon-play
-              | &nbsp; Compile
-    .container(style='max-width: 960px; min-width: 780px;')
-      .col-lg-6.col-md-6.col-sm-6.col-xs-6(style='padding-right: 0px;')
-        #editor-left
+    .container(style='max-width: 1280px; min-width: 780px;')
+      .header
+        h1 Libzen Playground
+    .container(style='max-width: 1280px; min-width: 780px;')
+      .col-lg-6.col-md-6.col-sm-6.col-xs-6
+        //(style='padding-right: 0px;')
+        nav.navbar.navbar-default(role='navigation')
+          .container-fluid
+            .navbar-header.navbar-right
+              a.navbar-brand(href='#') Konoha
+        #zen-editor
           | function foo&lpar;items&rpar; &lcub;
-          | var x &equals; &quot;All this is syntax highlighted&quot;&semi;
-          | return x&semi;
+          | &#9;var x &equals; &quot;All this is syntax highlighted&quot;&semi;
+          | &#9;return x&semi;
           | &rcub;
-      .col-lg-6.col-md-6.col-sm-6.col-xs-6(style='padding-left: 0px;')
-        #editor-right
+      .col-lg-6.col-md-6.col-sm-6.col-xs-6
+        nav.navbar.navbar-default(role='navigation')
+          .container-fluid
+            .navbar-header.navbar-right
+              a.navbar-brand(href='#') JavaScript
+        //(style='padding-left: 0px;')
+        #output-viewer
     .script
       +js('js/jquery.js')
       +js('js/bootstrap.min.js')
