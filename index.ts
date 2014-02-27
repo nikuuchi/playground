@@ -79,7 +79,7 @@ $(() => {
         bind(i);
     }
 
-    var Samples = ["fibo", "binarytrees"]
+    var Samples = ["class", "fibo", "binarytrees"]
 
     var sample_bind = (n) => {
         $('#sample-'+Samples[n]).click(function(){

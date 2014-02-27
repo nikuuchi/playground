@@ -74,3 +74,23 @@
         }
         print("long lived tree of depth " + maxDepth + "\t check: "+ longLivedTree.itemCheck());
     }
+  script#class(type='text/zen').
+    class Person {
+      var name : String;
+      var age = 17;
+      var IsChild : Func<boolean, Person>;
+    }
+    
+    function Person(this: Person, Name: String) {
+      this.name = Name;
+    }
+    
+    function IsChild(this : Person) {
+      return this.age < 21;
+    }
+    
+    export function main() {
+      var p = new Person("Taro");
+      var b = p.IsChild();
+      println("IsChild="+b);
+    }
