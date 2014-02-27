@@ -32,7 +32,7 @@ $(function () {
     //    outputViewer.setValue(zenEditor.getValue());
     //    outputViewer.clearSelection();
     //};
-    var GenerateServer = function () {
+    var GenerateServer = function (ShowTopFlag) {
         $.ajax({
             type: "POST",
             url: "cgi-bin/compile.cgi",
@@ -42,7 +42,9 @@ $(function () {
             success: function (res) {
                 outputViewer.setValue(res.source);
                 outputViewer.clearSelection();
-                outputViewer.gotoLine(0);
+                if (ShowTopFlag) {
+                    outputViewer.gotoLine(0);
+                }
             },
             error: function () {
                 console.log("error");
@@ -76,7 +78,7 @@ $(function () {
                 clearTimeout(timer);
                 timer = null;
             }
-            GenerateServer();
+            GenerateServer(true);
         });
     };
 
@@ -92,7 +94,7 @@ $(function () {
             zenEditor.setValue($("#" + Samples[n]).html());
             zenEditor.clearSelection();
             zenEditor.gotoLine(0);
-            GenerateServer();
+            GenerateServer(true);
         });
     };
 

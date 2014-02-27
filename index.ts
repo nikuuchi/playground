@@ -31,7 +31,7 @@ $(() => {
     //    outputViewer.clearSelection();
     //};
 
-    var GenerateServer = () => {
+    var GenerateServer = (ShowTopFlag: boolean) => {
         $.ajax({
             type: "POST",
             url: "cgi-bin/compile.cgi",
@@ -41,7 +41,9 @@ $(() => {
             success: (res) => {
                 outputViewer.setValue(res.source);
                 outputViewer.clearSelection();
-                outputViewer.gotoLine(0);
+                if(ShowTopFlag) {
+                    outputViewer.gotoLine(0);
+                }
             },
             error: () => {
                 console.log("error");
@@ -75,7 +77,7 @@ $(() => {
                 clearTimeout(timer);
                 timer = null;
             }
-            GenerateServer();
+            GenerateServer(true);
         });
     };
 
@@ -91,7 +93,7 @@ $(() => {
             zenEditor.setValue($("#"+ Samples[n]).html());
             zenEditor.clearSelection();
             zenEditor.gotoLine(0);
-            GenerateServer();
+            GenerateServer(true);
         });
     };
 
