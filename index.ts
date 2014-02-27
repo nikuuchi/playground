@@ -54,7 +54,7 @@ $(() => {
     });
 
     var TargetNames   = ["JavaScript", "Python", "Erlang", "C"];
-    var TargetOptions = ["js", "python", "erlang", "c"];
+    var TargetOptions = ["js", "py", "erlang", "c"];
     var TargetMode    = ["javascript", "python", "erlang", "c_cpp"];
 
     var bind = (n) => {
