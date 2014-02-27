@@ -20,7 +20,7 @@ def CreateSourceFile(name, contents):
 
 def Compile(name):
     #TODO
-    return commands.getoutput('zenjs ' + name + ' > ' + name + '.js')
+    return commands.getoutput('java -jar /usr/local/bin/libzen.jar -l erlang ' + name + ' > ' + name + '.txt')
 
 
 if __name__ == '__main__':
@@ -38,9 +38,9 @@ if __name__ == '__main__':
     message = Compile(name)
 
     jsfilecontent = ''
-    compile_flag = os.path.exists(name+".js")
+    compile_flag = os.path.exists(name+".txt")
     if compile_flag:
-        a = open(name+'.js', 'r')
+        a = open(name+'.txt', 'r')
         jsfilecontent = a.read()
 
     print CreateResponseJson(jsfilecontent, '', message)
