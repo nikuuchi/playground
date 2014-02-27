@@ -49,6 +49,9 @@ color: #000000\
 .ace-xcode .ace_cursor {\
 color: #000000\
 }\
+.ace-xcode .ace_function {\
+color: blue\
+}\
 .ace-xcode .ace_marker-layer .ace_selection {\
 background: #B5D5FF\
 }\
