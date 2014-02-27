@@ -50,7 +50,7 @@ $(function () {
             clearTimeout(timer);
             timer = null;
         }
-        timer = setTimeout(Generate, 500);
+        timer = setTimeout(Generate, 200);
     });
 
     var TargetNames = ["JavaScript", "Python", "Erlang", "C"];
