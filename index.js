@@ -54,9 +54,9 @@ $(function () {
         timer = setTimeout(GenerateServer, 400);
     });
 
-    var TargetNames = ["JavaScript", "Python", "Erlang", "C"];
-    var TargetOptions = ["js", "py", "erlang", "c"];
-    var TargetMode = ["javascript", "python", "erlang", "c_cpp"];
+    var TargetNames = ["JavaScript", "Python", "Erlang", "C", "LLVM"];
+    var TargetOptions = ["js", "py", "erlang", "c", "llvm"];
+    var TargetMode = ["javascript", "python", "erlang", "c_cpp", "assembly_x86"];
 
     var bind = function (n) {
         var Target = $('#Target-' + TargetNames[n]);
