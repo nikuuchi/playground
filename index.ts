@@ -16,10 +16,14 @@ module Playground {
     }
 }
 
+var Debug: any = {};
+
 $(() => {
     var zenEditor = Playground.CreateEditor("zen-editor");
+    Debug.zenEditor = zenEditor;
     Playground.ChangeSyntaxHighlight(zenEditor, "typescript");
     var outputViewer = Playground.CreateEditor("output-viewer");
+    Debug.outputViewer = outputViewer;
     outputViewer.setReadOnly(true);
 
     //var Generate = () => {
@@ -37,6 +41,7 @@ $(() => {
             success: (res) => {
                 outputViewer.setValue(res.source);
                 outputViewer.clearSelection();
+                outputViewer.gotoLine(0);
             },
             error: () => {
                 console.log("error");
@@ -85,6 +90,7 @@ $(() => {
         $('#sample-'+Samples[n]).click(function(){
             zenEditor.setValue($("#"+ Samples[n]).html());
             zenEditor.clearSelection();
+            zenEditor.gotoLine(0);
             GenerateServer();
         });
     };

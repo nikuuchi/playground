@@ -18,10 +18,14 @@ var Playground;
     Playground.ChangeSyntaxHighlight = ChangeSyntaxHighlight;
 })(Playground || (Playground = {}));
 
+var Debug = {};
+
 $(function () {
     var zenEditor = Playground.CreateEditor("zen-editor");
+    Debug.zenEditor = zenEditor;
     Playground.ChangeSyntaxHighlight(zenEditor, "typescript");
     var outputViewer = Playground.CreateEditor("output-viewer");
+    Debug.outputViewer = outputViewer;
     outputViewer.setReadOnly(true);
 
     //var Generate = () => {
@@ -38,6 +42,7 @@ $(function () {
             success: function (res) {
                 outputViewer.setValue(res.source);
                 outputViewer.clearSelection();
+                outputViewer.gotoLine(0);
             },
             error: function () {
                 console.log("error");
@@ -86,6 +91,7 @@ $(function () {
         $('#sample-' + Samples[n]).click(function () {
             zenEditor.setValue($("#" + Samples[n]).html());
             zenEditor.clearSelection();
+            zenEditor.gotoLine(0);
             GenerateServer();
         });
     };
