@@ -94,3 +94,28 @@
       var b = p.IsChild();
       println("IsChild="+b);
     }
+  script#function(type='text/zen').
+    function f(n){
+      n = n + 1;
+      n = n + 1;
+      n = n + 1;
+      return n;
+    }
+  script#if(type='text/zen').
+    function f(n){
+      if(n < 3) {
+        n = n+3;
+      }else{
+        n = n-3;
+      }
+      return n;
+    }
+  script#while(type='text/zen').
+    function f(i) {
+        var n = 2;
+        while (i>0){
+            n = n*n;
+        }
+        return n;
+    }
+

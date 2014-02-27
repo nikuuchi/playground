@@ -99,4 +99,23 @@ export function main() {
   var p = new Person("Taro");
   var b = p.IsChild();
   println("IsChild="+b);
-}</script></div><script type="text/javascript" src="js/jquery.js"></script><script type="text/javascript" src="js/bootstrap.min.js"></script><script type="text/javascript" src="js/ace/ace.js"></script><!--+js('js/LibLibZen.js')--><!--+js('js/libzen.js')--><script type="text/javascript" src="index.js"></script></div></body></html>
+}</script><script id="function" type="text/zen">function f(n){
+  n = n + 1;
+  n = n + 1;
+  n = n + 1;
+  return n;
+}</script><script id="if" type="text/zen">function f(n){
+  if(n < 3) {
+    n = n+3;
+  }else{
+    n = n-3;
+  }
+  return n;
+}</script><script id="while" type="text/zen">function f(i) {
+    var n = 2;
+    while (i>0){
+        n = n*n;
+    }
+    return n;
+}
+</script></div><script type="text/javascript" src="js/jquery.js"></script><script type="text/javascript" src="js/bootstrap.min.js"></script><script type="text/javascript" src="js/ace/ace.js"></script><!--+js('js/LibLibZen.js')--><!--+js('js/libzen.js')--><script type="text/javascript" src="index.js"></script></div></body></html>
