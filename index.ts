@@ -18,6 +18,7 @@ module Playground {
 
 $(() => {
     var zenEditor = Playground.CreateEditor("zen-editor");
+    Playground.ChangeSyntaxHighlight(zenEditor, "typescript");
     var outputViewer = Playground.CreateEditor("output-viewer");
     outputViewer.setReadOnly(true);
 
