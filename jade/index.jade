@@ -27,6 +27,11 @@ html(lang='en')
           .container-fluid
             .navbar-header.navbar-left
               a.navbar-brand(href='#') Konoha
+            ul.nav.navbar-nav.navbar-right
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown') Sample
+                  b.caret
+                ul#zen-sample.dropdown-menu
         #zen-editor
           | function foo&lpar;n: int&rpar; &lcub;
           | &#9;var x &equals; &quot;hello, world&quot;&semi;
@@ -42,6 +47,7 @@ html(lang='en')
                 ul#Targets.dropdown-menu
         #output-viewer
     .script
+      include sample
       +js('js/jquery.js')
       +js('js/bootstrap.min.js')
       +js('js/ace/ace.js')

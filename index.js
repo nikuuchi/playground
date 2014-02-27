@@ -80,5 +80,20 @@ $(function () {
         bind(i);
     }
 
+    var Samples = ["fibo", "binarytrees"];
+
+    var sample_bind = function (n) {
+        $('#sample-' + Samples[n]).click(function () {
+            zenEditor.setValue($("#" + Samples[n]).html());
+            zenEditor.clearSelection();
+            GenerateServer();
+        });
+    };
+
+    for (var i = 0; i < Samples.length; i++) {
+        $("#zen-sample").append('<li id="sample-' + Samples[i] + '-li"><a href="#" id="sample-' + Samples[i] + '">' + Samples[i] + '</a></li>');
+        sample_bind(i);
+    }
+
     $("#Target-JavaScript-li").addClass("active");
 });
