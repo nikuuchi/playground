@@ -8377,6 +8377,9 @@ var Tokenizer = function(rules) {
         var splitterRurles = [];
         for (var i = 0; i < state.length; i++) {
             var rule = state[i];
+            if (rule == null) {
+                continue;
+            }
             if (rule.defaultToken)
                 mapping.defaultToken = rule.defaultToken;
             if (rule.caseInsensitive)
@@ -8673,6 +8676,9 @@ var TextHighlightRules = function() {
             var state = rules[key];
             for (var i = 0; i < state.length; i++) {
                 var rule = state[i];
+                if(rule == null) {
+                    continue;
+                }
                 if (rule.next) {
                     if (typeof rule.next != "string") {
                         if (rule.nextState && rule.nextState.indexOf(prefix) !== 0)
@@ -14208,6 +14214,9 @@ var Marker = function(parentEl) {
         var html = [];
         for (var key in this.markers) {
             var marker = this.markers[key];
+            if(marker instanceof Function) {
+                continue;
+            }
 
             if (!marker.range) {
                 marker.update(html, this, this.session, config);

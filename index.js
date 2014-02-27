@@ -28,13 +28,29 @@ $(function () {
         outputViewer.clearSelection();
     };
 
+    var GenerateServer = function () {
+        $.ajax({
+            type: "POST",
+            url: "cgi-bin/compile.cgi",
+            data: JSON.stringify({ source: zenEditor.getValue(), option: Playground.CodeGenTarget }),
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            success: function (res) {
+                outputViewer.setValue(res.source);
+            },
+            error: function () {
+                console.log("error");
+            }
+        });
+    };
+
     var timer = null;
     zenEditor.on("change", function (cm, obj) {
         if (timer) {
             clearTimeout(timer);
             timer = null;
         }
-        timer = setTimeout(Generate, 200);
+        timer = setTimeout(Generate, 500);
     });
 
     var TargetNames = ["JavaScript", "Python", "Erlang", "C"];
