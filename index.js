@@ -64,6 +64,8 @@ $(function () {
             Playground.CodeGenTarget = TargetOptions[n];
             $('li.active').removeClass("active");
             Target.parent().addClass("active");
+            $('#active-lang').text(TargetNames[n]);
+            $('#active-lang').append('<b class="caret"></b>');
             Playground.ChangeSyntaxHighlight(outputViewer, TargetMode[n]);
             if (timer) {
                 clearTimeout(timer);

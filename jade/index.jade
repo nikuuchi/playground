@@ -35,7 +35,11 @@ html(lang='en')
       .col-lg-6.col-md-6.col-sm-6.col-xs-6
         nav.navbar.navbar-default(role='navigation')
           .container-fluid
-            ul#Targets.nav.navbar-nav.navbar-right
+            ul.nav.navbar-nav.navbar-right
+              li.dropdown
+                a#active-lang.dropdown-toggle(href='#', data-toggle='dropdown') JavaScript
+                  b.caret
+                ul#Targets.dropdown-menu
         #output-viewer
     .script
       +js('js/jquery.js')
