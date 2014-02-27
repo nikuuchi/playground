@@ -7,8 +7,6 @@ import time
 import commands
 import codecs
 import json
-import yaml
-from pymongo import MongoClient
 
 def CreateResponseJson(source, result, error):
     return json.dumps({'source': source, 'result': result, 'error': error})
@@ -18,9 +16,8 @@ def CreateSourceFile(name, contents):
     f.write(contents)
     f.close()
 
-def Compile(name):
-    #TODO
-    return commands.getoutput('zenjs ' + name + ' > ' + name + '.js')
+def Compile(name, target):
+    return commands.getoutput('java -jar /usr/local/bin/libzen.jar -l ' + target+ ' '+ name + ' > ' + name + '.txt')
 
 
 if __name__ == '__main__':
@@ -35,12 +32,12 @@ if __name__ == '__main__':
     req = json.load(sys.stdin)
 
     CreateSourceFile(name, req["source"])
-    message = Compile(name)
+    message = Compile(name, req["option"])
 
-    jsfilecontent = ''
-    compile_flag = os.path.exists(name+".js")
+    filecontent = ''
+    compile_flag = os.path.exists(name+".txt")
     if compile_flag:
-        a = open(name+'.js', 'r')
-        jsfilecontent = a.read()
+        a = open(name+'.txt', 'r')
+        filecontent = a.read()
 
-    print CreateResponseJson(jsfilecontent, '', message)
+    print CreateResponseJson(filecontent, '', message)

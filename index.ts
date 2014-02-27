@@ -21,10 +21,10 @@ $(() => {
     var outputViewer = Playground.CreateEditor("output-viewer");
     outputViewer.setReadOnly(true);
 
-    var Generate = () => {
-        outputViewer.setValue(zenEditor.getValue());
-        outputViewer.clearSelection();
-    };
+    //var Generate = () => {
+    //    outputViewer.setValue(zenEditor.getValue());
+    //    outputViewer.clearSelection();
+    //};
 
     var GenerateServer = () => {
         $.ajax({
@@ -35,6 +35,7 @@ $(() => {
             contentType: "application/json; charset=utf-8",
             success: (res) => {
                 outputViewer.setValue(res.source);
+                outputViewer.clearSelection();
             },
             error: () => {
                 console.log("error");
@@ -48,7 +49,7 @@ $(() => {
             clearTimeout(timer);
             timer = null;
         }
-        timer = setTimeout(Generate, 200);
+        timer = setTimeout(GenerateServer, 400);
     });
 
     var TargetNames   = ["JavaScript", "Python", "Erlang", "C"];
@@ -66,7 +67,7 @@ $(() => {
                 clearTimeout(timer);
                 timer = null;
             }
-            Generate();
+            GenerateServer();
         });
     };
 
