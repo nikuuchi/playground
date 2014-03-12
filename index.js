@@ -35,7 +35,7 @@ $(function () {
     var GenerateServer = function (ShowTopFlag) {
         $.ajax({
             type: "POST",
-            url: "cgi-bin/compile.cgi",
+            url: "/compile",
             data: JSON.stringify({ source: zenEditor.getValue(), option: Playground.CodeGenTarget }),
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
