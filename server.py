@@ -21,7 +21,7 @@ def createSourceFile(name, contents):
     f.close()
 
 def compileCommand(name, target):
-    return commands.getoutput('java -jar /usr/local/bin/libzen.jar -l ' + target+ ' '+ name + ' > ' + name + '.txt')
+    return commands.getoutput('java -jar {0}/../libzen.jar -l {1} {2} > {2}.txt'.format(rootPath, target, name))
 
 def readCompiledFile(name):
     if os.path.exists(name+".txt"):
@@ -58,4 +58,4 @@ def compile():
 def server_static(filepath):
     return static_file(filepath, root=rootPath)
 
-run(app, host='localhost', port=8080)
+run(app, host='0.0.0.0', port=3000)
